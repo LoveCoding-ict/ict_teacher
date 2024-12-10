@@ -17,28 +17,54 @@ if ($username === $validUsername && $password === $validPassword) {
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <title>ICT Library (Teacher)</title>
       <style>
-        a:link, a:visited {
-          background-color: #f44336;
-          color: white;
-          padding: 15px 25px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          width: 500px;
-          border-radius: 10px;
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
         }
-        a:hover, a:active {
-          background-color: SlateBlue;
-          border-radius: 10px;
-        }
+
         .bg {
-          margin: auto;
-          width: 60%;
+          margin: 20px auto;
+          max-width: 900px;
           background-color: MediumSeaGreen;
           border-radius: 10px;
           text-align: center;
-          font-size: 25px;
+          font-size: 20px;
           padding: 20px;
+        }
+
+        a {
+          background-color: #f44336;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+          background-color: SlateBlue;
+        }
+
+        @media (max-width: 768px) {
+          .bg {
+            font-size: 18px;
+          }
+
+          a {
+            padding: 8px 16px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .bg {
+            font-size: 16px;
+          }
+
+          a {
+            padding: 6px 12px;
+          }
         }
       </style>
     </head>
@@ -59,7 +85,7 @@ if ($username === $validUsername && $password === $validPassword) {
     // If login fails, show error and link back to login page
     echo "<script>
     alert('Invalid username or password. Please try again.');
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
     </script>";
 }
 ?>
