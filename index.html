@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Login</title>
 <style>
-a:link, a:visited {
-  background-color: #f44336;
-  color: white;
-  padding: 15px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  width:500px;
-  border-radius: 10px;
-}
-
-a:hover, a:active {
-	width:500px;
-  	background-color: SlateBlue;
-  	border-radius: 10px;
-}
-.bg{
-	margin: auto;
-	width: 60%;
-	background-color:MediumSeaGreen;
-	border-radius: 10px;
-	text-align: center;
-	font-size: 25px;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+  }
+  .login-form {
+    background-color: #fff;
+    padding: 20px;
+    margin: auto;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .login-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .login-form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
 </style>
 </head>
 <body>
-	<div class="bg">
-		<br><h2>ICT Library (Teacher)</h2>
-		<a href="https://sala.moeys.gov.kh/kh/library/00001483">សៀវភៅសិក្សាICT</a>
-		<br><br>
-		<a href="https://kahoot.com/">ហ្គេមឆ្លើយសំណួរ</a>
-		<br><br>
-		<a href="https://wheelofnames.com/">ស្វែងរកសិស្សឆ្លើយសំណួរ</a>
-		<br><br>
-		<a href="https://wheelofnames.com/">បែងចែកក្រុមសិស្ស</a>
-		<br><br>
-	</div>
+  <div class="login-form">
+    <h2>Login</h2>
+    <form action="login.php" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
 </body>
 </html>
-
