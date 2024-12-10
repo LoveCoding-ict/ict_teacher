@@ -1,108 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Secure Login</title>
 <style>
-  /* General Styles */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 500px;
+  border-radius: 10px;
+}
 
-  .login-form {
-    background-color: #fff;
-    padding: 20px;
-    margin: 10px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+a:hover, a:active {
+  width: 500px;
+  background-color: SlateBlue;
+  border-radius: 10px;
+}
 
-  .login-form h2 {
-    margin-bottom: 20px;
-    color: #333;
-  }
+.bg {
+  margin: auto;
+  width: 60%;
+  background-color: MediumSeaGreen;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+}
 
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+.login-form {
+  margin: auto;
+  width: 50%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
 
-  .login-form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .login-form input[type="submit"]:hover {
-    background-color: #45a049;
-  }
+.login-form input[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .login-form {
-      max-width: 90%;
-      padding: 15px;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-      font-size: 14px;
-      padding: 10px;
-    }
-
-    .login-form input[type="submit"] {
-      font-size: 16px;
-      padding: 12px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .login-form h2 {
-      font-size: 20px;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-      font-size: 12px;
-      padding: 8px;
-    }
-
-    .login-form input[type="submit"] {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
+.login-form input[type="button"]:hover {
+  background-color: #45a049;
+}
 </style>
 </head>
 <body>
-  <div class="login-form">
-    <h2>Login</h2>
-    <form action="login.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="submit" value="Login">
-    </form>
-  </div>
+<div class="login-form">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" required>
+  <br>
+  <input type="password" id="password" placeholder="Password" required>
+  <br>
+  <input type="button" value="Login" onclick="validateLogin()">
+</div>
+
+<div class="bg" id="content" style="display: none;">
+  <br><h2>ICT Library (Teacher)</h2>
+  <a href="https://sala.moeys.gov.kh/kh/library/00001483">សៀវភៅសិក្សាICT</a>
+  <br><br>
+  <a href="https://play.kahoot.it/v2/lobby?quizId=fbbc7e2d-38e8-45a2-b7b0-57c9e472af7d">ហ្គេមឆ្លើយសំណួរ</a>
+  <br><br>
+  <a href="https://wheelofnames.com/">ស្វែងរកសិស្សឆ្លើយសំណួរ</a>
+  <br><br>
+  <a href="https://wheelofnames.com/">បែងចែកក្រុមសិស្ស</a>
+  <br><br>
+</div>
+
+<script>
+function validateLogin() {
+  // Predefined username and password
+  const validUsername = "teacher";
+  const validPassword = "ict123";
+
+  // Get input values
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // Validate login
+  if (username === validUsername && password === validPassword) {
+    alert("Login successful!");
+    document.querySelector('.login-form').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } else {
+    alert("Invalid username or password. Please try again.");
+  }
+}
+</script>
 </body>
 </html>
