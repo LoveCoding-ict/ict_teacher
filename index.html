@@ -3,41 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secure Login</title>
+<title>Responsive Secure Login</title>
 <style>
+  /* General Styles */
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    text-align: center;
-    padding: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
+
   .login-form {
     background-color: #fff;
     padding: 20px;
-    margin: auto;
-    width: 300px;
+    margin: 10px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
+
+  .login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
   .login-form input[type="text"],
   .login-form input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
   }
+
   .login-form input[type="submit"] {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    font-size: 18px;
   }
+
   .login-form input[type="submit"]:hover {
     background-color: #45a049;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-form {
+      max-width: 90%;
+      padding: 15px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    .login-form input[type="submit"] {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .login-form h2 {
+      font-size: 20px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    .login-form input[type="submit"] {
+      font-size: 14px;
+      padding: 10px;
+    }
   }
 </style>
 </head>
