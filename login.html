@@ -131,6 +131,7 @@
         document.getElementById("login-form").style.display = "none";
         document.getElementById("protected-content").style.display = "block";
         errorMessage.textContent = "";
+        window.location.href = 'index.html';
       } else {
         // Login error
         errorMessage.textContent = "Invalid username or password. Please try again.";
