@@ -3,115 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICT Lab</title>
   <style>
     /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    /* Container for the login form */
+    /* Login container */
     .login-container {
-      margin: 50px auto;
-      width: 90%;
-      max-width: 400px;
-      background-color: #ffffff;
+      background-color: #fff;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
       text-align: center;
-    }
-
-    .login-container h2 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
       color: #333;
+      margin-bottom: 20px;
     }
 
-    .login-container label {
+    /* Input fields */
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    label {
       display: block;
-      text-align: left;
-      font-size: 0.9rem;
       margin-bottom: 5px;
-      color: #555;
+      font-weight: bold;
     }
 
-    .login-container input {
+    input {
       width: 100%;
       padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 1rem;
+      font-size: 16px;
     }
 
-    .login-container button {
+    /* Login button */
+    button {
       width: 100%;
       padding: 10px;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    .login-container button:hover {
+    button:hover {
       background-color: #45a049;
     }
 
-    .login-container a {
-      display: inline-block;
+    /* Error message */
+    .error {
+      color: red;
+      text-align: center;
       margin-top: 10px;
-      text-decoration: none;
-      color: #007BFF;
-      font-size: 0.9rem;
     }
 
-    .login-container a:hover {
-      text-decoration: underline;
+    /* Protected Content */
+    .protected-content {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
     }
 
-    /* Media Queries for smaller screens */
-    @media screen and (max-width: 480px) {
-      .login-container {
-        padding: 15px;
-      }
-
-      .login-container h2 {
-        font-size: 1.5rem;
-      }
+    .protected-content h3 {
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <!-- Existing content -->
-  <div class="bg">
-    <h2>ICT Lab (Student)</h2>
-    <!-- Existing dropdown menus remain here -->
+  <!-- Login Form Container -->
+  <div class="login-container" id="login-form">
+    <h2>Login</h2>
+    <div class="form-control">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter your username">
+    </div>
+    <div class="form-control">
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <button onclick="validateLogin()">Login</button>
+    <div id="error-message" class="error"></div>
   </div>
 
-  <!-- Login Form -->
-  <div class="login-container">
-    <h2>Login</h2>
-    <form action="/login" method="POST">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter your username" required>
-      
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      
-      <button type="submit">Login</button>
-    </form>
-    <a href="#">Forgot Password?</a>
+  <!-- Protected Content -->
+  <div class="protected-content" id="protected-content">
+    <h3>Welcome to the ICT Lab!</h3>
+    <p>This is protected content only accessible after login.</p>
+    <button onclick="logout()">Logout</button>
   </div>
+
+  <script>
+    // Hardcoded username and password
+    const validUsername = "admin";
+    const validPassword = "1234";
+
+    // Login validation function
+    function validateLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (username === validUsername && password === validPassword) {
+        // Successful login
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("protected-content").style.display = "block";
+        errorMessage.textContent = "";
+      } else {
+        // Login error
+        errorMessage.textContent = "Invalid username or password. Please try again.";
+      }
+    }
+
+    // Logout function
+    function logout() {
+      document.getElementById("protected-content").style.display = "none";
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+    }
+  </script>
 
 </body>
 </html>
