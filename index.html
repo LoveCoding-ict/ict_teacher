@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     /* General Reset */
@@ -10,110 +11,286 @@
       box-sizing: border-box;
     }
 
-    /* Body Styling */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-      padding: 10px;
-    }
-
-    /* Main Login Section */
-    .bg {
-      margin: auto;
-      max-width: 400px;
-      width: 100%;
-      background-color: MediumSeaGreen;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 20px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Form Styling */
-    .login-form {
-      margin: 20px 0;
-      padding: 10px;
-      text-align: center;
-    }
-
-    /* Input fields */
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    /* Submit Button */
-    .login-form input[type="submit"] {
+    /* Basic link styles (same as dropbtn) */
+    a:link, a:visited {
       background-color: #f44336;
       color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 85%;
-      transition: background-color 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      max-width: 550px;
+      border-radius: 10px;
+      padding: 15px 25px;
+      margin-bottom: 5px;  /* Adjust the space between links */
     }
 
-    .login-form input[type="submit"]:hover {
+    a:hover, a:active {
       background-color: SlateBlue;
     }
 
-    /* Media Query for Responsiveness */
-    @media (max-width: 768px) {
+    /* Container for the page */
+    .bg {
+      margin: auto;
+      width: 80%;
+      max-width: 600px;
+      background-color: MediumSeaGreen;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* Dropdown button */
+    .dropbtn {
+      background-color: #f44336;
+      padding: 15px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      max-width: 550px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      border-radius: 10px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px; /* Reduce space between dropdowns */
+    }
+
+    /* Dropdown content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: gray;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 530px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Links inside dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 7px 10px;
+      text-decoration: none;
+      display: block;
+      border-radius: 10px;
+      background-color: Magenta;
+    }
+
+    .dropdown-content a:hover {
+      background-color: gray;
+    }
+
+    /* Show dropdown content on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Change button background on hover */
+    .dropdown:hover .dropbtn {
+      background-color: SlateBlue;
+    }
+
+    /* Submenu styles */
+    .submenu {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background-color: DeepSkyBlue;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Submenu link styles */
+    .submenu a {
+      padding: 10px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .submenu a:hover {
+      background-color: #ddd;
+    }
+
+    /* Show submenu on hover */
+    .has-submenu:hover .submenu {
+      display: block;
+    }
+
+    /* Media queries for mobile responsiveness */
+    @media screen and (max-width: 768px) {
       .bg {
-        max-width: 90%;
-        padding: 15px;
-        font-size: 18px;
+        width: 90%;
+        font-size: 1.2rem;
+        padding: 10px;
       }
 
-      .login-form input[type="text"],
-      .login-form input[type="password"],
-      .login-form input[type="submit"] {
-        width: 90%;
+      .dropbtn {
+        font-size: 1.2rem;
+        width: 100%;
+      }
+
+      .dropdown-content {
+        width: 100%;
+      }
+
+      .submenu {
+        width: 100%;
+      }
+
+      a {
+        font-size: 1rem;
+      }
+
+      .dropdown-content a {
+        font-size: 1rem;
         padding: 8px;
       }
     }
 
-    @media (max-width: 480px) {
+    /* Additional tweaks */
+    @media screen and (max-width: 480px) {
       .bg {
-        padding: 10px;
-        font-size: 16px;
+        font-size: 1rem;
       }
 
-      .login-form input[type="text"],
-      .login-form input[type="password"],
-      .login-form input[type="submit"] {
-        width: 95%;
-        padding: 6px;
+      .dropbtn {
+        font-size: 1rem;
+      }
+
+      .dropdown-content a {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="bg">
-    <h2>ICT Library Login</h2>
-    <div class="login-form">
-      <form action="login.php" method="POST">
-        <input type="text" name="username" placeholder="Enter your username" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <input type="submit" value="Login">
-      </form>
+    <h2>ICT Lab (Student)</h2>
+    <br>
+    <!-- First Dropdown Menu -->
+    <div class="dropdown">
+      <button class="dropbtn">សៀវភៅសិក្សាICT</button>
+      <div class="dropdown-content">
+        <a href="https://sala.moeys.gov.kh/kh/library/00001483">ICTសម្រាប់ការបង្រៀននិងរៀន</a>
+        <a href="https://drive.google.com/file/d/198-eq22fI9e3wBaDZ7k2apkhxIMBe2gH/view?usp=sharing">សៀវភៅសិក្សាICTថ្នាក់ទី១២</a>
+        <a href="https://drive.google.com/file/d/1fc8Y0YHGcfpMP5emZGpy8mqkOAfjoK0E/view?usp=sharing">សៀវភៅសិក្សាICTថ្នាក់ទី១១</a>
+      </div>
     </div>
-    <p>
-      <a href="https://sala.moeys.gov.kh/kh/library/00001483">សៀវភៅសិក្សាICT</a>
-      <br><br>
-      <a href="https://play.kahoot.it/v2/lobby?quizId=fbbc7e2d-38e8-45a2-b7b0-57c9e472af7d">ហ្គេមឆ្លើយសំណួរ</a>
-      <br><br>
-      <a href="https://wheelofnames.com/">ស្វែងរកសិស្សឆ្លើយសំណួរ</a>
-      <br><br>
-      <a href="https://wheelofnames.com/">បែងចែកក្រុមសិស្ស</a>
-    </p>
+
+    <!-- Second Dropdown Menu -->
+    <div class="dropdown">
+      <button class="dropbtn">សៀវភៅអនុវត្ត(Open Office Writer)</button>
+      <div class="dropdown-content">
+        <a href="https://drive.google.com/file/d/107AxneNZwX5nnRjJsksRxWbEA5N0vb0x/view?usp=sharing">មេរៀនទី១</a>
+        <a href="https://drive.google.com/file/d/1_2fICqrnDuzr2HKJthdd9kR-yDYlwXdd/view?usp=sharing">មេរៀនទី២</a>
+        <a href="https://drive.google.com/file/d/1XWNoMvrVVbtULRrevo_Y8sj8rmdCdgq9/view?usp=sharing">មេរៀនទី៣</a>
+        <a href="https://drive.google.com/file/d/1ct6K7r0d6ZRZM55tfFG6CG_1Dtp26BoO/view?usp=sharing">មេរៀនទី៤</a>
+        <a href="https://drive.google.com/file/d/1UgnmJNloInqA3SdpGZH0eTSLopYoR72m/view?usp=sharing">មេរៀនទី៥</a>
+        <a href="https://drive.google.com/file/d/1i8AV5kVTTAZH1NaDMr54T5neFhE3Ehlh/view?usp=sharing">មេរៀនទី៦</a>
+        <a href="https://drive.google.com/file/d/1dHhgQmRhQ_xwmMC_PNAr61FACH_aU-AF/view?usp=sharing">មេរៀនទី៧</a>
+        <a href="https://drive.google.com/file/d/1UYoyXiPESNPTlAAZqvMryhJKbIYUDyND/view?usp=sharing">មេរៀនទី៨</a>
+        <a href="https://drive.google.com/file/d/15dfXXdOmn1b6Piodlzg6TqBBI58rjuoO/view?usp=sharing">មេរៀនទី៩</a>
+        <a href="https://drive.google.com/file/d/1McfzH5P-hlNBB22P8RnDukd3AmZ3wH1B/view?usp=sharing">មេរៀនទី១០</a>
+        <a href="https://drive.google.com/file/d/1r8NJV7BGhnzIfzHihhsFBU-CD_ybMpbh/view?usp=sharing">មេរៀនទី១១</a>
+        <a href="https://drive.google.com/file/d/1KTXTjG51NbjVzuCT1h1KbKm3egNbG_Hp/view?usp=sharing">មេរៀនទី១២</a>
+      </div>
+    </div>
+     <div class="dropdown">
+      <button class="dropbtn">សៀវភៅអនុវត្ត(Open Office Calc)</button>
+      <div class="dropdown-content">
+        <a href="https://drive.google.com/file/d/1zf-IiQnIRWkyMe8Deq9nEJmdRMyU7e42/view?usp=sharing">មេរៀនទី១</a>
+        <a href="https://drive.google.com/file/d/1BXbfGWbyJPNDUpI3W4cAl_m6ItkXdaWr/view?usp=sharing">មេរៀនទី២</a>
+        <a href="https://drive.google.com/file/d/1pZY89IlMx64DvlwG-mIsx2sOnkdBrEdb/view?usp=sharing">មេរៀនទី៣</a>
+        <a href="https://drive.google.com/file/d/1A_4Z4vbFCog5jJmBeRUFOrsB8hTxOPg3/view?usp=sharing">មេរៀនទី៤</a>
+        <a href="https://drive.google.com/file/d/1gxgXf3fN9y58r87n1TxwoB3qRZSIyHha/view?usp=sharing">មេរៀនទី៥</a>
+        <a href="https://drive.google.com/file/d/19vUM_SFGMAQBrK1MQu6bQQwOtOQvhZVf/view?usp=sharing">មេរៀនទី៦</a>
+        <a href="https://drive.google.com/file/d/1hPluVkHV_Rk6WSQJaHoydGscqwiNoDMZ/view?usp=sharing">មេរៀនទី៧</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">ឯកសារជំនួយ(CGC)</button>
+      <div class="dropdown-content">
+        <a href="https://drive.google.com/file/d/1eMuM4OJwcyHbmcfdobETr07q99xhgzEQ/view?usp=sharing">មេរៀនទី៤</a>
+        <a href="https://drive.google.com/file/d/1Z6kKc_mloQ6X3cP0iUbJLlLaqvwQZRX2/view?usp=sharing">មេរៀនទី៥</a>
+        <a href="https://drive.google.com/file/d/1Ug8jpioNWfgZ7JV9dKDLGDN3FwZ6-hp4/view?usp=sharing">មេរៀនទី៦</a>
+        <a href="#">មេរៀនទី៧</a>
+        <a href="#">មេរៀនទី៨</a>
+        <a href="#">មេរៀនទី៩</a>
+        <a href="#">មេរៀនទី១០</a>
+      </div>
+    </div>
+
+    <!-- Another link -->
+    <a href="https://kahoot.it/">ហ្គេមឆ្លើយសំណួរចុងម៉ោង</a>
+
+    <!-- Dropdown with Submenu -->
+    <div class="dropdown">
+      <button class="dropbtn">ប្រឡង</button>
+      <div class="dropdown-content">
+        <div class="has-submenu">
+          <a href="#">ICT11</a>
+          <div class="submenu">
+            <a href="https://forms.gle/zNph7yZnjdAxXo9d7">ប្រឡងប្រចាំខែធ្នូICT11</a>
+            <a href="https://docs.google.com/spreadsheets/d/1qwLJMThAKnY8MBWDsXZ4v4z30h_J9vzbMSvcBKadIfI/edit?usp=sharing">ពិន្ទុ11</a>
+          </div>
+        </div>
+        <div class="has-submenu">
+          <a href="#">ICT12</a>
+          <div class="submenu">
+            <a href="https://forms.gle/XvQStsAdFW1rqfNU8">ប្រឡងប្រចាំខែធ្នូICT12</a>
+            <a href="https://docs.google.com/spreadsheets/d/1-eR_jNFDFzFdk7cS3-YXPsnppIMdSXGkGxTchI_k5Cs/edit?usp=sharing">ពិន្ទុ12</a>
+          </div>
+        </div>
+        <div class="has-submenu">
+          <a href="#">CGC11</a>
+          <div class="submenu">
+            <a href="https://forms.gle/U23fS8vEbtk8XAzW9">តេស្ថដើមឆ្នាំCCG11</a>
+            <!-- <a href="https://forms.gle/YQRr5GHJBhuJfR1c8">ប្រឡងប្រចាំខែវិច្ឆិកា</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Another Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn">សន្លឹកកិច្ចការស្វ័យសិក្សា</button>
+      <div class="dropdown-content">
+         <div class="has-submenu">
+        <a href="#">ICTថ្នាក់ទី១២</a>
+         <div class="submenu">
+            <a href="https://docs.google.com/document/d/1ftpXyYPXS1xZgN4E7fLtISfZBiVSFMSoH5TOMnh32-E/edit?usp=sharing">ទ្រឹស្តីICTទី១២</a>
+             <a href="https://docs.google.com/document/d/1N32ONnI9RDncA0rmsTxGPFM6SMM45sxkSTWjJi1qhnw/edit?usp=sharing">អនុវត្តICTទី១២</a>
+         </div>
+         </div>
+         <div class="has-submenu">
+        <a href="#">ICTថ្នាក់ទី១១</a>
+         <div class="submenu">
+            <a href="#">ទ្រឹស្តីICTទី១១</a>
+             <a href="#">អនុវត្តICTទី១១</a>
+         </div>
+         </div>
+        <a href="#">CGCថ្នាក់ទី១១</a>
+      </div>
+    </div>
   </div>
+
 </body>
 </html>
