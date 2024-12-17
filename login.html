@@ -109,11 +109,11 @@
   </div>
 
   <!-- Protected Content -->
-<!--   <div class="protected-content" id="protected-content">
+  <div class="protected-content" id="protected-content">
     <h3>Welcome to the ICT Lab!</h3>
     <p>This is protected content only accessible after login.</p>
     <button onclick="logout()">Logout</button>
-  </div> -->
+  </div>
 
   <script>
     // Hardcoded username and password
@@ -138,13 +138,13 @@
       }
     }
 
-    // Logout function
-    // function logout() {
-    //   document.getElementById("protected-content").style.display = "none";
-    //   document.getElementById("login-form").style.display = "block";
-    //   document.getElementById("username").value = "";
-    //   document.getElementById("password").value = "";
-    // }
+    //Logout function
+    function logout() {
+      document.getElementById("protected-content").style.display = "none";
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+    }
   </script>
 
 </body>
