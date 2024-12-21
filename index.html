@@ -4,22 +4,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #7FFFD4;
+  color:black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
-  font-size: 15px;
+  font-size: 20px;
   transition: 0.4s;
   border-radius: 10px;
   margin: 5px;
 }
 
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: #FAEBD7;
 }
 
 .accordion:after {
@@ -45,40 +45,31 @@
 </head>
 <body>
 
-<h2>Accordion with symbols</h2>
-<p>Click on the sections and subsections to expand and collapse them.</p>
+<h2 align="center">ICT Lab(Teacher)</h2>
 
-<button class="accordion">Section 1</button>
+<button class="accordion">សៀវភៅសិក្សាគោលICT</button>
 <div class="panel">
-  <button class="accordion sub-accordion">Sub-Section 1</button>
+  <button class="accordion sub-accordion">សៀវភៅICTសម្រាប់ការបង្រៀននិងរៀន</button>
 
-  <button class="accordion sub-accordion">Sub-Section 2</button>
-  <div class="sub-panel">
-    <p>Content for Sub-Section 2</p>
-  </div>
-  <button class="accordion sub-accordion">Sub-Section 3</button>
-  <div class="sub-panel">
-    <p>Content for Sub-Section 3</p>
-  </div>
+  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១២</button>
+
+  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១១</button>
+  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១០</button>
+
 </div>
 
-<button class="accordion">Section 2</button>
+<button class="accordion">វិធីសាស្រ្តបង្រៀននិងកម្មវិធីសិក្សា</button>
 <div class="panel">
-  <button class="accordion sub-accordion">Sub-Section 1</button>
-  <div class="sub-panel">
-    <p>Content for Sub-Section 1</p>
-  </div>
-  <button class="accordion sub-accordion">Sub-Section 2</button>
-  <div class="sub-panel">
-    <p>Content for Sub-Section 2</p>
-  </div>
+  <a href="https://sala.moeys.gov.kh/kh/library/00004475?fbclid=IwY2xjawHN38tleHRuA2FlbQIxMQABHeaJztRO3HjKbpmSGmlGGV0NPMhoflbSCqi4qfb_QYQEvIaqur7QCm3JYA_aem_Mt2YYiyCiO3pQmIff2x8Lw"><button class="accordion sub-accordion">វិធីសាស្រ្តបង្រៀន</button></a>
+  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១០</button>
+  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១១</button>
+  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១២</button>
 </div>
 
-<button class="accordion">Section 3</button>
+<button class="accordion">ស្តង់ដាទី២៖ ការបង្រៀននិងរៀន</button>
 <div class="panel">
-  <button class="accordion sub-accordion">Sub-Section 1</button>
+      <button class="accordion sub-accordion">ចំនួនសិស្សនិងគ្រូចូលប្រើប្រាស់បន្ទប់កុំព្យូទ័រ</button>
 </div>
-
 <script>
 var acc = document.getElementsByClassName("accordion");
 for (let i = 0; i < acc.length; i++) {
