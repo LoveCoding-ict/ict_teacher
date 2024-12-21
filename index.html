@@ -14,9 +14,8 @@
   outline: none;
   font-size: 15px;
   transition: 0.4s;
-  border-radius:10px;
-  margin:5px;
-  
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .active, .accordion:hover {
@@ -35,14 +34,7 @@
   content: "\2212";
 }
 
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-#sub-panel {
+.panel, .sub-panel {
   padding: 0 18px;
   background-color: white;
   max-height: 0;
@@ -54,47 +46,66 @@
 <body>
 
 <h2>Accordion with symbols</h2>
-<p>In this example we have added a "plus" sign to each button. When the user clicks on the button, the "plus" sign is replaced with a "minus" sign.</p>
+<p>Click on the sections and subsections to expand and collapse them.</p>
+
 <button class="accordion">Section 1</button>
 <div class="panel">
-   <div class="sub-panel">
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
+  <button class="accordion sub-accordion">Sub-Section 1</button>
+
+  <button class="accordion sub-accordion">Sub-Section 2</button>
+  <div class="sub-panel">
+    <p>Content for Sub-Section 2</p>
+  </div>
+  <button class="accordion sub-accordion">Sub-Section 3</button>
+  <div class="sub-panel">
+    <p>Content for Sub-Section 3</p>
   </div>
 </div>
 
 <button class="accordion">Section 2</button>
 <div class="panel">
-   <div class="sub-panel">
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
+  <button class="accordion sub-accordion">Sub-Section 1</button>
+  <div class="sub-panel">
+    <p>Content for Sub-Section 1</p>
+  </div>
+  <button class="accordion sub-accordion">Sub-Section 2</button>
+  <div class="sub-panel">
+    <p>Content for Sub-Section 2</p>
   </div>
 </div>
 
 <button class="accordion">Section 3</button>
 <div class="panel">
-  <div class="sub-panel">
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
-    <button class="accordion">Sub-Section 1</button>
-  </div>
+  <button class="accordion sub-accordion">Sub-Section 1</button>
 </div>
 
 <script>
 var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
+for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
+    // Toggle active class for the clicked button
     this.classList.toggle("active");
+
+    // Manage the visibility of the associated panel
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
+    }
+
+    // If this is a sub-accordion, close other sub-accordions in the same parent
+    if (this.classList.contains("sub-accordion")) {
+      let parentPanel = this.parentNode; // Parent panel of subsections
+      let subAccordions = parentPanel.getElementsByClassName("sub-accordion");
+
+      for (let j = 0; j < subAccordions.length; j++) {
+        if (subAccordions[j] !== this) {
+          subAccordions[j].classList.remove("active");
+          subAccordions[j].nextElementSibling.style.maxHeight = null;
+        }
+      }
+    }
   });
 }
 </script>
