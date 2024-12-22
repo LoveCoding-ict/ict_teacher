@@ -3,9 +3,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* Styles for the accordion */
 .accordion {
   background-color: #7FFFD4;
-  color:black;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -34,7 +35,7 @@
   content: "\2212";
 }
 
-.panel, .sub-panel {
+.panel {
   padding: 0 18px;
   background-color: white;
   max-height: 0;
@@ -42,32 +43,84 @@
   transition: max-height 0.2s ease-out;
 }
 
+/* Styles for the login form */
+#login {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#login input {
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  width: 200px;
+}
+
+#login button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #7FFFD4;
+  border: none;
+  border-radius: 5px;
+}
+
+#login button:hover {
+  background-color: #FAEBD7;
+}
+
+/* Logout button style */
+#logout {
+  text-align: center;
+  margin: 20px;
+}
+
+#logout button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #FA8072;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#logout button:hover {
+  background-color: #E9967A;
+}
 </style>
 </head>
 <body>
 
-<h2 align="center">ICT Lab(Teacher)</h2>
-
-<button class="accordion">សៀវភៅសិក្សាគោលICT</button>
-<div class="panel">
-  <button class="accordion sub-accordion">សៀវភៅICTសម្រាប់ការបង្រៀននិងរៀន</button>
-
-  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១២</button>
-
-  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១១</button>
-  <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១០</button>
-
+<!-- Login Form -->
+<div id="login">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="authenticate()">Login</button>
 </div>
 
-<button class="accordion">វិធីសាស្រ្តបង្រៀននិងកម្មវិធីសិក្សា</button>
-<div class="panel">
-  <a href="https://sala.moeys.gov.kh/kh/library/00004475?fbclid=IwY2xjawHN38tleHRuA2FlbQIxMQABHeaJztRO3HjKbpmSGmlGGV0NPMhoflbSCqi4qfb_QYQEvIaqur7QCm3JYA_aem_Mt2YYiyCiO3pQmIff2x8Lw"><button class="accordion sub-accordion">វិធីសាស្រ្តបង្រៀន</button></a>
-  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១០</button>
-  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១១</button>
-  <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១២</button>
-</div>
+<!-- Hidden Content -->
+<div id="content" style="display: none;">
+  <h2 align="center">ICT Lab (Teacher)</h2>
 
-<button class="accordion">ស្តង់ដាទី២៖ ការបង្រៀននិងរៀន</button>
+
+  <button class="accordion">សៀវភៅសិក្សាគោលICT</button>
+  <div class="panel">
+    <button class="accordion sub-accordion">សៀវភៅICTសម្រាប់ការបង្រៀននិងរៀន</button>
+    <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១២</button>
+    <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១១</button>
+    <button class="accordion sub-accordion">សៀវភៅសិក្សាគោលICTថ្នាក់ទី១០</button>
+  </div>
+
+  <button class="accordion">វិធីសាស្រ្តបង្រៀននិងកម្មវិធីសិក្សា</button>
+  <div class="panel">
+    <button class="accordion sub-accordion">វិធីសាស្រ្តបង្រៀន</button>
+    <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១០</button>
+    <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១១</button>
+    <button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១២</button>
+  </div>
+  <button class="accordion">ស្តង់ដាទី២៖ ការបង្រៀននិងរៀន</button>
 <div class="panel">
       <button class="accordion sub-accordion">ចំនួនសិស្សនិងគ្រូចូលប្រើប្រាស់បន្ទប់កុំព្យូទ័រ</button>
       <button class="accordion sub-accordion">កាលវិភាគបន្ទប់កុំព្យូទ័រ</button>
@@ -86,32 +139,53 @@
       <button class="accordion sub-accordion">ខែសីហា</button>
       <button class="accordion sub-accordion">ខែកញ្ញា</button>
 </div>
+  
+  <div id="logout">
+    <button onclick="logout()">Logout</button>
+  </div>
+
+</div>
+
 <script>
+// Predefined username and password
+const validUsername = "teacher";
+const validPassword = "12345";
+
+// Authentication function
+function authenticate() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (username === validUsername && password === validPassword) {
+    // Hide login form and show content
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    alert("Invalid username or password. Please try again.");
+  }
+}
+
+// Logout function
+function logout() {
+  // Hide content and show login form
+  document.getElementById("content").style.display = "none";
+  document.getElementById("login").style.display = "block";
+
+  // Clear input fields
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+}
+
+// Accordion functionality
 var acc = document.getElementsByClassName("accordion");
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    // Toggle active class for the clicked button
     this.classList.toggle("active");
-
-    // Manage the visibility of the associated panel
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-
-    // If this is a sub-accordion, close other sub-accordions in the same parent
-    if (this.classList.contains("sub-accordion")) {
-      let parentPanel = this.parentNode; // Parent panel of subsections
-      let subAccordions = parentPanel.getElementsByClassName("sub-accordion");
-
-      for (let j = 0; j < subAccordions.length; j++) {
-        if (subAccordions[j] !== this) {
-          subAccordions[j].classList.remove("active");
-          subAccordions[j].nextElementSibling.style.maxHeight = null;
-        }
-      }
     }
   });
 }
