@@ -43,30 +43,57 @@
   transition: max-height 0.2s ease-out;
 }
 
-/* Styles for the login form */
+/* Enhanced Styles for the login form */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #7FFFD4, #FAEBD7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 #login {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 100px;
+  width: 100%;
+  max-width: 380px;
+}
+
+#login h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
 #login input {
-  padding: 10px;
-  margin: 10px;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
   font-size: 16px;
-  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 #login button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  width: 100%;
+  padding: 14px;
   background-color: #7FFFD4;
+  color: #333;
+  font-size: 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #login button:hover {
-  background-color: #FAEBD7;
+  background-color: #5FD2B1;
 }
 
 /* Logout button style */
@@ -94,7 +121,7 @@
 
 <!-- Login Form -->
 <div id="login">
-  <h2>ICT Lab (Teacher)</h2></h2>
+  <h2>ICT Lab (Teacher)</h2>
   <input type="text" id="username" placeholder="Username"><br>
   <input type="password" id="password" placeholder="Password"><br>
   <button onclick="authenticate()">Login</button>
@@ -102,8 +129,7 @@
 
 <!-- Hidden Content -->
 <div id="content" style="display: none;">
-  <h2 align="center">ICT Lab (Teacher)</h2>
-
+  <h2 align="center">Welcome to ICT Lab (Teacher)</h2>
 
   <button class="accordion">សៀវភៅសិក្សាគោលICT</button>
   <div class="panel">
@@ -121,12 +147,12 @@
     <a href="https://drive.google.com/file/d/1X-DTUo-j16OCkZqJ124cGYqX6y9upMH8/view?usp=sharing"><button class="accordion sub-accordion">កម្មវិធីសិក្សាថ្នាក់ទី១២</button></a>
   </div>
   <button class="accordion">ស្តង់ដាទី២៖ ការបង្រៀននិងរៀន</button>
-<div class="panel">
+  <div class="panel">
       <a href="https://docs.google.com/spreadsheets/d/14eOYRhoMFgeUKAunVWXg1tMhH755Bbq7OBkR032zuZI/edit?usp=sharing"><button class="accordion sub-accordion">ចំនួនសិស្សនិងគ្រូចូលប្រើប្រាស់បន្ទប់កុំព្យូទ័រ</button></a>
      <a href="https://drive.google.com/file/d/1B3nss7KBdWPOMPdN_-kCNE5JJf34jxdT/view?usp=sharing"><button class="accordion sub-accordion">កាលវិភាគបន្ទប់កុំព្យូទ័រ</button></a>
-</div>
-<button class="accordion">ប្រជុំក្រុមបច្ចេកទេស</button>
-<div class="panel">
+  </div>
+  <button class="accordion">ប្រជុំក្រុមបច្ចេកទេស</button>
+  <div class="panel">
       <button class="accordion sub-accordion">ខែវិច្ឆិកា</button>
       <div class="panel">
           <a href="https://drive.google.com/file/d/1hWYSi40cnjNFQqcINahlZa33UtThuPG_/view?usp=sharing"><button class="accordion sub-accordion">ប្រជុំលើកទី១</button></a>
@@ -187,13 +213,11 @@
           <button class="accordion sub-accordion">ប្រជុំលើកទី១</button>
           <button class="accordion sub-accordion">ប្រជុំលើកទី២</button>
       </div>
-     
 </div>
-   <div id="logout">
-         <button onclick="logout()">Logout</button>
-    </div>
- 
 
+<!-- Logout button -->
+<div id="logout">
+  <button onclick="logout()">Logout</button>
 </div>
 
 <script>
