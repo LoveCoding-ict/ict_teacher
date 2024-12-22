@@ -50,8 +50,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Allow the body to grow as needed */
   margin: 0;
+
 }
 
 #login {
@@ -214,11 +215,14 @@ body {
           <button class="accordion sub-accordion">ប្រជុំលើកទី២</button>
       </div>
 </div>
-
-<!-- Logout button -->
+  
+  <!-- Logout button -->
 <div id="logout">
   <button onclick="logout()">Logout</button>
 </div>
+</div>
+
+
 
 <script>
 // Predefined username and password
@@ -256,10 +260,21 @@ for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
+
+    // Check if panel is already expanded
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+
+    // Prevent collapse when clicking on the active accordion button
+    for (let j = 0; j < acc.length; j++) {
+      if (acc[j] !== this) {
+        acc[j].classList.remove("active");
+        var otherPanel = acc[j].nextElementSibling;
+        otherPanel.style.maxHeight = null;
+      }
     }
   });
 }
